@@ -21,20 +21,33 @@
         <div class="container">
             <h1 class="mt-5">Clientes do Sistema</h1>
             <div class="table-responsive">
+                <div class="my-2">
+                    <a href="formulario.php" class="btn btn-primary">
+                        Novo Cliente
+                    </a>
+                </div>
                 <table class="table table-bordered">
                     <thead>
+                       <th>ID</th> 
                        <th>Nome</th> 
                        <th>Telefone</th> 
                        <th>Endereço</th> 
+                       <th>Ações</th> 
                     </thead>
                     <tbody>
                         <?php $clientes = listarClientes(); ?>
                         <?php if(count($clientes) > 0): ?>
                             <?php foreach($clientes as $cliente): ?>
                                 <tr>
-                                    <td><?= $cliente['nome']; ?></td>
+                                    <td><?php echo $cliente['id']; ?></td>
+                                    <td><?php echo $cliente['nome']; ?></td>
                                     <td><?= $cliente['telefone']; ?></td>
                                     <td><?= $cliente['endereco']; ?></td>
+                                    <td>
+                                        <a href="formulario.php?id=<?= $cliente['id']?>" class="btn btn-primary">
+                                            Alterar
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php endforeach;?>
                         <?php endif;?>
