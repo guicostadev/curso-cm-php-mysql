@@ -16,6 +16,20 @@
         return $produtos;      
     }
 
+    function listarProdutosComFabricante()
+    {
+        $database = ConexaoDB::instancia();
+
+        $stmt  = "SELECT p.id, p.nome, f.nome as 'fabricante', p.codigo, p.valor FROM produtos p ";
+        $stmt .= "LEFT JOIN fabricantes f ON f.id = p.fabricantes_id ";
+        $query = $database->prepare($stmt);
+
+        $query->execute();
+        $produtos = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $produtos;      
+    }
+
 	function consultarProduto($id)
     {        
         $database = ConexaoDB::instancia();

@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="../assets/css/project.css" rel="stylesheet" />
 </head>
 <body class="d-flex flex-column h-100"> 
@@ -23,32 +24,34 @@
             <div class="table-responsive">
                 <div class="my-2">
                     <a href="formulario.php" class="btn btn-primary">
-                        Novo Produto
+                        <i class="fa fa-plus me-2" aria-hidden="true"></i>Novo Produto
                     </a>
                 </div>
                 <table class="table table-sm table-hover">
                     <thead>
                        <th class="text-center">ID</th> 
+                       <th class="text-left">Fabricante</th> 
                        <th class="text-left">Nome</th> 
                        <th class="text-left">Codigo</th> 
                        <th class="text-right">Valor</th> 
                        <th class="text-center">Ações</th> 
                     </thead>
                     <tbody>
-                        <?php $produtos = listarProdutos(); ?>
+                        <?php $produtos = listarProdutosComFabricante(); ?>
                         <?php if(count($produtos) > 0): ?>
                             <?php foreach($produtos as $produto): ?>
                                 <tr>
                                     <td class="text-center"><?php echo $produto['id']; ?></td>
+                                    <td class="text-left"><?php echo $produto['fabricante']; ?></td>
                                     <td class="text-left"><?php echo $produto['nome']; ?></td>
                                     <td class="text-left"><?php echo $produto['codigo']; ?></td>
                                     <td class="text-left">R$ <?php echo $produto['valor']; ?></td>
                                     <td class="text-center">
-                                        <a href="formulario.php?id=<?= $produto['id']?>" class="btn btn-primary">
-                                            Alterar
+                                        <a title="Alterar" href="formulario.php?id=<?= $produto['id']?>" class="btn btn-primary">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
-                                        <a href="excluir_produto.php?id=<?= $produto['id']?>" class="btn btn-danger ml-2">
-                                            Excluir
+                                        <a title="Excluir" href="excluir_produto.php?id=<?= $produto['id']?>" class="btn btn-danger ml-2">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -62,6 +65,6 @@
 
     <?php require '../footer.php' ; ?>
     
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
 </body>
 </html>

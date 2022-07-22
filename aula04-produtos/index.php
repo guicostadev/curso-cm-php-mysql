@@ -7,7 +7,8 @@
     <title>Curso-CM</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="./assets/css/project.css" rel="stylesheet" />
 </head>
 <body class="d-flex flex-column h-100"> 
@@ -21,6 +22,6 @@
 
     <?php require 'footer.php' ; ?>
 
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
 </body>
 </html>
